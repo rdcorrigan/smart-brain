@@ -115,12 +115,13 @@ class App extends Component {
                 input: this.state.input
             })
           })
+    // fetch("https://api.clarifai.com/v2/models/" + 'face-detection' + "/outputs", returnClarifaiRequestOptions(this.state.input))
       .then(response => response.json())
       .then(response => {
         if (response) {
           fetch('https://smartbrainbackend-371k.onrender.com/image', {
             method: 'put',
-            headers: {'Contlsent-Type': 'application/json'},
+            headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
                 id: this.state.user.id
             })
